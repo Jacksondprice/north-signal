@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: north-signal
+spec:
+  replicas: 2
+  template:
+    spec:
+      containers:
+        - name: app
+          image: ghcr.io/jacksondprice/north-signal:1.4.0
+          envFrom:
+            - secretRef:
+                name: app-secrets
